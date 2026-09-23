@@ -1,0 +1,26 @@
+# Diretrizes locais de IA / Agente
+AGENTS.md
+
+# Sistema Operacional (macOS)
+.DS_Store
+Thumbs.db
+
+# Node / Front-End
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Python / Back-End
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+*.sqlite3
+
+# Variáveis de ambiente e segredos
+.env
+.env.*
+!.env.example
