@@ -11,20 +11,24 @@ function App() {
   }
 
   return (
-    <main>
-      <header>
-        <h1>{printer.name}</h1>
+    <main className="dashboard-cointainer">
+      <header className="dashboard-header">
+        <h1>Printer Dash</h1>
       </header>
-      <section>
+      <article className="printer-card">
+        <div className="printer-card-header">
+          <h2>{printer.name}</h2>
+          <span className={`status ${printer.isOnline ? 'online' : 'offline'}`}>
+            {printer.isOnline ? 'Online' : 'Offline'}
+          </span>
+        </div>
         <div>
-          <p>{printer.name}</p>
-          <p>{printer.isOnline ? 'Online' : 'Offline'}</p>
-          <p>{printer.ink}</p>
-          <p>{printer.mBox}</p>
+          <p>{printer.ink}%</p>
+          <p>{printer.mBox}%</p>
           <p>{printer.ip}</p>
           <p>{printer.store}</p>
         </div>
-      </section>
+      </article>
     </main>
   )
    
