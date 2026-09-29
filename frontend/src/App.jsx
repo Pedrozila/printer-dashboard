@@ -11,9 +11,10 @@ function App() {
   }
 
   return (
-    <main className="dashboard-cointainer">
+    <main className="dashboard-container">
       <header className="dashboard-header">
         <h1>Printer Dash</h1>
+        <span>Vizualizador de impressoras</span>
       </header>
       <article className="printer-card">
         <div className="printer-card-header">
@@ -22,7 +23,7 @@ function App() {
             {printer.isOnline ? 'Online' : 'Offline'}
           </span>
         </div>
-        <div>
+        <div className="printer-card-body">
           <p>{printer.ink}%</p>
           <p>{printer.mBox}%</p>
           <p>{printer.ip}</p>
