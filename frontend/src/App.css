@@ -17,3 +17,19 @@
     margin-bottom: 20px;
     padding: 16px;
 }
+
+.printer-card {
+    background-color: #f7f6eb;
+    width: 200px;
+    height: 150px;
+    border-radius: 8px;
+    border: solid 1px #000000;
+}
+
+.printer-card-header {
+    background-color: #5d9371;
+    color: #ffffff;
+    padding: 8px;
+    border-top-left-radius:6px;
+    border-top-right-radius:6px;
+}
