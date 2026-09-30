@@ -1,6 +1,7 @@
 import './App.css'
 
 function App() {
+  // Dados simulados da nossa impressora
   const printer = {
     name: 'P7662',
     isOnline: true,
@@ -11,28 +12,93 @@ function App() {
   }
 
   return (
-    <main className="dashboard-container">
-      <header className="dashboard-header">
-        <h1>Printer Dash</h1>
-        <span>Vizualizador de impressoras</span>
-      </header>
-      <article className="printer-card">
-        <div className="printer-card-header">
-          <h2>{printer.name}</h2>
-          <span className={`status ${printer.isOnline ? 'online' : 'offline'}`}>
-            {printer.isOnline ? 'Online' : 'Offline'}
-          </span>
+    // 1. Container geral da aplicação em formato Flex (Menu na esquerda, Conteúdo na direita)
+    <div className="app-layout">
+
+      {/* 2. Menu Lateral Semântico (Sidebar) */}
+      <aside className="sidebar">
+        {/* Cabeçalho da Sidebar: Logo + Nome do Sistema */}
+        <div className="sidebar-brand">
+          <span className="brand-icon">🖨️</span>
+          <h2>PrinterDash</h2>
         </div>
-        <div className="printer-card-body">
-          <p>{printer.ink}%</p>
-          <p>{printer.mBox}%</p>
-          <p>{printer.ip}</p>
-          <p>{printer.store}</p>
+
+        {/* Navegação principal do sistema */}
+        <nav className="sidebar-nav">
+          <ul>
+            <li className="nav-item active">
+              <a href="#printers">
+                <span className="nav-icon">📊</span>
+                <span>Impressoras</span>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href="#stores">
+                <span className="nav-icon">🏢</span>
+                <span>Lojas & Filiais</span>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href="#alerts">
+                <span className="nav-icon">⚠️</span>
+                <span>Alertas</span>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href="#settings">
+                <span className="nav-icon">⚙️</span>
+                <span>Configurações</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        {/* Rodapé da Sidebar: Info do operador / Ambiente de TI */}
+        <div className="sidebar-footer">
+          <div className="user-badge">
+            <span className="user-avatar">👤</span>
+            <div>
+              <strong>Suporte TI</strong>
+              <small>N1 / N2</small>
+            </div>
+          </div>
         </div>
-      </article>
-    </main>
+      </aside>
+
+      {/* 3. Área Principal de Conteúdo (fica à direita da Sidebar) */}
+      <div className="content-area">
+        {/* Barra de Topo do Dashboard */}
+        <header className="dashboard-header">
+          <div>
+            <h1>Dashboard Geral</h1>
+            <span>Monitoramento corporativo em tempo real</span>
+          </div>
+        </header>
+
+        {/* Conteúdo Principal onde os dados moram */}
+        <main className="dashboard-main">
+          {/* Seção que agrupa os cards em grade */}
+          <section className="printers-grid">
+            <article className="printer-card">
+              <div className="printer-card-header">
+                <h2>{printer.name}</h2>
+                <span className={`status ${printer.isOnline ? 'online' : 'offline'}`}>
+                  {printer.isOnline ? 'Online' : 'Offline'}
+                </span>
+              </div>
+              <div className="printer-card-body">
+                <p><strong>Tinta:</strong> {printer.ink}%</p>
+                <p><strong>Caixa Manutenção:</strong> {printer.mBox}%</p>
+                <p><strong>IP:</strong> {printer.ip}</p>
+                <p><strong>Loja:</strong> {printer.store}</p>
+              </div>
+            </article>
+          </section>
+        </main>
+      </div>
+
+    </div>
   )
-   
 }
 
 export default App
