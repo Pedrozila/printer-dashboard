@@ -1,15 +1,70 @@
 import './App.css'
 
 function App() {
-  // Dados simulados da nossa impressora
-  const printer = {
-    name: 'P7662',
-    isOnline: true,
-    ink: 20,
-    mBox: 56,
-    ip: '10.70.50.23',
-    store: '70-ILM'
-  }
+  // Dados simulados das nossas impressoras
+  const printers = [
+    {
+      id: 1,
+      name: 'P7662',
+      isOnline: true,
+      ink: 20,
+      mBox: 56,
+      ip: '10.70.50.23',
+      store: '70-ILM',
+      sector: 'TI'
+    },
+    {
+      id: 2,
+      name: 'P7662',
+      isOnline: true,
+      ink: 20,
+      mBox: 56,
+      ip: '10.70.50.23',
+      store: '70-ILM',
+      sector: 'TI'
+    },
+    {
+      id: 3,
+      name: 'P7662',
+      isOnline: true,
+      ink: 20,
+      mBox: 56,
+      ip: '10.70.50.23',
+      store: '70-ILM',
+      sector: 'TI'
+    },
+    {
+      id: 4,
+      name: 'P7662',
+      isOnline: false,
+      ink: 20,
+      mBox: 56,
+      ip: '10.70.50.23',
+      store: '70-ILM',
+      sector: 'TI'
+    },
+    {
+      id: 5,
+      name: 'P7662',
+      isOnline: true,
+      ink: 20,
+      mBox: 56,
+      ip: '10.70.50.23',
+      store: '70-ILM',
+      sector: 'TI'
+    },
+    {
+      id: 6,
+      name: 'P7662',
+      isOnline: true,
+      ink: 20,
+      mBox: 56,
+      ip: '10.70.50.23',
+      store: '70-ILM',
+      sector: 'TI'
+    },
+
+  ]
 
   return (
     // 1. Container geral da aplicação em formato Flex (Menu na esquerda, Conteúdo na direita)
@@ -79,20 +134,23 @@ function App() {
         <main className="dashboard-main">
           {/* Seção que agrupa os cards em grade */}
           <section className="printers-grid">
-            <article className="printer-card">
-              <div className="printer-card-header">
-                <h2>{printer.name}</h2>
-                <span className={`status ${printer.isOnline ? 'online' : 'offline'}`}>
-                  {printer.isOnline ? 'Online' : 'Offline'}
-                </span>
-              </div>
-              <div className="printer-card-body">
-                <p><strong>Tinta:</strong> {printer.ink}%</p>
-                <p><strong>Caixa Manutenção:</strong> {printer.mBox}%</p>
-                <p><strong>IP:</strong> {printer.ip}</p>
-                <p><strong>Loja:</strong> {printer.store}</p>
-              </div>
-            </article>
+            {printers.map((printer) => (
+              <article className="printer-card" key={printer.id}>
+                <div className="printer-card-header">
+                  <h2>{printer.name}</h2>
+                  <span className={`status ${printer.isOnline ? 'online' : 'offline'}`}>
+                    {printer.isOnline ? 'Online' : 'Offline'}
+                  </span>
+                </div>
+                <div className="printer-card-body">
+                  <p><strong>Tinta:</strong> {printer.ink}%</p>
+                  <p><strong>Caixa Manutenção:</strong> {printer.mBox}%</p>
+                  <p><strong>IP:</strong> {printer.ip}</p>
+                  <p><strong>Loja:</strong> {printer.store}</p>
+                  <p><strong>Sector:</strong> {printer.sector}</p>
+                </div>
+              </article>
+            ))}
           </section>
         </main>
       </div>
